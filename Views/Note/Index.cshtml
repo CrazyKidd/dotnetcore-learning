@@ -1,0 +1,44 @@
+@{
+var pageindex=Convert.ToInt32(ViewBag.PageIndex);
+var pagecount=Convert.ToInt32(ViewBag.PageCount);
+var pagestart=pageindex-2>0?pageindex-2:1;
+var pageend=pageindex+2>=pagecount?pagecount:pagestart+4;
+}
+
+
+@model List<NetNote.Models.Note>
+
+    <div class="container-fluid">
+        <div class="row"><a asp-action="Add">添加Note</a></div>@foreach (var item in Model) {
+        @if(string.IsNullOrEmpty(item.Password)) {
+        <div class="row">
+            <h3>@item.Title</h3>
+            <h5>类型：@item.Type.Name</h5>
+            <div class="content" id="md_@item.Id">@item.Content</div>@if ( !string.IsNullOrEmpty(item.Attachment)) {
+            <a href="@item.Attachment">下载</a>
+            }
+
+            <hr />
+        </div>
+        }
+
+        else {
+        <div class="row"><a asp-action="Detail" asp-route-id="@item.Id">内容已加密</a></div>
+        }
+        }
+
+    </div>
+    <nav>
+        <ul class="pageination">
+            <li class="@(pageindex==1?" disabled":"")"><a asp-action="Index"
+                    asp-route-pageindex="@(pageindex==1?1:pageindex-1)">&laquo;
+
+                </a></li>@for (int i=pageindex; i < pageend; i++) { <li @(pageindex==1?"class=active":"")><a
+                    asp-action="Index" asp-route-pageindex="@i">@i</a></li>
+                }
+
+                <li class="@(pageindex==pagecount?" disabled":"")"><a asp-action="Index"
+                        asp-route-pageindex="@(pageindex==pagecount?pagecount:pageindex+1)">&raquo;
+                    </a></li>
+        </ul>
+    </nav>

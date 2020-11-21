@@ -1,0 +1,34 @@
+@model NetNote.ViewModel.NoteModel
+@{
+    var types=ViewBag.types as IEnumerable<SelectListItem>;
+}
+<div class="container-fluid">
+    <div class="row" style="margin-top: 10px; margin-bottom:10px;">
+        <form asp-action="Add" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" type="text" placeholder="标题" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content"></label>
+                <textarea asp-for="Content" data-provide="markdown" rows="10" cols="50" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type"></label>
+                <select asp-for="Type" asp-items="types" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" placeholder="如需加密请输入密码" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Attachment"></label>
+                <input asp-for="Attachment" type="file" class="form-control"/>
+            </div>
+            <hr/>
+            <p>
+                <button type="submit" class="btn">保存</button>
+            </p>
+        </form>
+    </div>
+</div>

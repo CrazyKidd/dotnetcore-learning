@@ -1,0 +1,23 @@
+@inject Microsoft.AspNetCore.Identity.SignInManager<NetNote.Models.NoteUser> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<NetNote.Models.NoteUser> UserManager
+
+        @if(SignInManager.IsSignedIn(User)){
+        <form asp-controller="Account" asp-action="LogOff" method="POST" id="logoutForm" class="navbar-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-action="Index" asp-controller="Note">
+                        @UserManager.GetUserName(User)
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">注销</a>
+                </li>
+            </ul>
+        </form>
+        }
+        else{
+        <ul class="nav navbar-nav navbar-right">
+            <li><a asp-action="Login" asp-controller="Account">登录</a></li>
+            <li><a asp-action="Register" asp-controller="Account">注册</a></li>
+        </ul>
+        }

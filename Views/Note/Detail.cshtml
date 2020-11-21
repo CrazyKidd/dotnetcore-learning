@@ -1,0 +1,22 @@
+@model NetNote.Models.Note
+
+<div class="row">
+    @if (Model==null)
+    {
+    <form method="POST" asp-action="Detail">
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" placeholder="请输入密码" class="form-control" />
+        </div>
+        <p><button type="submit" class="btn text-center">查看</button></p>
+    </form>
+    }
+    else{
+    <h3>@Model.Title</h3>
+    <h5>类型：@Model.Type.Name</h5>
+    <div class="content">@Model.Content</div>
+    if(!string.IsNullOrEmpty(Model.Attachment)){
+    <a href="@Model.Attachment">下载</a>
+    }
+    }
+</div>
