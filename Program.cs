@@ -19,6 +19,7 @@ namespace NetNote
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseUrls("http://localhost:8081")
+                .UseKestrel()
                 .UseIISIntegration()
                 .UseStartup<Startup>();
             })

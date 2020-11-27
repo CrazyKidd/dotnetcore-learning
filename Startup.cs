@@ -50,7 +50,7 @@ namespace NetNote
             //var connection = @"Server=.;Database=Note;UID=sa;PWD=12345678;";
             services.AddDbContext<NoteContext>(options =>
             {
-                
+
                 //options.UseSqlServer(connection)
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
@@ -69,6 +69,8 @@ namespace NetNote
                 .AddCookie(options =>
                 {
                     options.LoginPath = new PathString("/Home/Index");
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                    options.Cookie.Name = "CookieName";
                 });
 
             services.AddControllersWithViews();
@@ -85,7 +87,7 @@ namespace NetNote
                 .AllowAnyMethod()
                 .AllowCredentials();
             }));
-            services.AddMvc(option=>option.EnableEndpointRouting=false);
+            services.AddMvc(option => option.EnableEndpointRouting = false);
             //允许一个或多个来源可以跨域
             // services.AddCors(options =>
             // {
@@ -97,7 +99,7 @@ namespace NetNote
             //         .AllowCredentials();
             //       });
             // });
-
+            services.AddHttpClient();
             services.AddAutoMapper(typeof(AutoMapperConfigs));
             // services.AddScoped<INoteRepository, NoteRepository>();
             // services.AddScoped<INoteTypeRepository, NoteTypeRepository>();

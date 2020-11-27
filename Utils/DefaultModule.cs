@@ -12,6 +12,7 @@ using System.Net;
 using RedLockNet.SERedis.Configuration;
 using AutoMapper;
 using NetNote.AutoMapper;
+using NetNote.Aop;
 
 namespace NetNote.Utils
 {
@@ -28,6 +29,7 @@ namespace NetNote.Utils
             // services.AddScoped(typeof(ProductService));
             // services.AddSingleton<IDistributedCache>(new CSRedisCache(csredis));
             // services.AddScoped<IResdisClient, CustomerRedis>();
+            builder.RegisterType<LogInterceptor>();
             builder.RegisterType<NoteRepository>().As<INoteRepository>().InstancePerLifetimeScope();
             builder.RegisterType<NoteTypeRepository>().As<INoteTypeRepository>().InstancePerLifetimeScope();
             builder.RegisterType<ProductService>().InstancePerLifetimeScope();

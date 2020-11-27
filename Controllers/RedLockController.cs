@@ -16,7 +16,7 @@ namespace NetNote.Controllers {
         }
 
         [HttpGet]
-        public async Task < bool > DistributedLockTest() {
+        public async Task <bool> DistributedLockTest() {
             string productId = "id";
             using(var redLock = await _distributedLockFactory.CreateLockAsync(productId, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10), TimeSpan.FromMilliseconds(20))) {
                 if (redLock.IsAcquired) {

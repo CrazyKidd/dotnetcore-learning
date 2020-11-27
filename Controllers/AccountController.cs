@@ -6,6 +6,9 @@ using NetNote.Models;
 using System.Threading.Tasks;
 using NetNote.ViewModel;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace NetNote.Controllers
 {
@@ -41,8 +44,16 @@ namespace NetNote.Controllers
                 return View(model);
             }
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RemeberMe, lockoutOnFailure: false);
+
             if (result.Succeeded)
+            //if (HttpContext.User.Identity.IsAuthenticated)
             {
+                var claims = new Claim[]{
+                    new Claim("UserName",model.UserName)
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
                 _logger.LogInformation("Logged in {userName}.", model.UserName);
                 return RedirectToAction("Index", "Note");
             }

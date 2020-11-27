@@ -1,11 +1,13 @@
 using System;
 using Castle.DynamicProxy;
+using Microsoft.Extensions.Logging;
 
 namespace NetNote.Aop
 {
     public class MyIntercept : StandardInterceptor
     {
-        private static NLog.Logger logger;
+        private static NLog.Logger _logger;
+
         //执行前
         protected override void PreProceed(IInvocation invocation)
         {
@@ -15,7 +17,7 @@ namespace NetNote.Aop
         protected override void PerformProceed(IInvocation invocation)
         {
             Console.WriteLine(invocation.Method.Name + "执行中");
-            
+
             try
             {
                 base.PerformProceed(invocation);
@@ -23,8 +25,9 @@ namespace NetNote.Aop
             catch (Exception ex)
             {
                 //HandleException(ex);
+                //_logger.LogInformation("Logged in {userName}.", invocation.Method.Name);
                 throw new NotImplementedException();
-                
+
             }
         }
         //执行后
