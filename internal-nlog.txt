@@ -1,0 +1,27 @@
+2020-11-22 04:04:29.7588 Info Message Template Auto Format enabled
+2020-11-22 04:04:29.7678 Info Loading assembly: NLog.Web.AspNetCore
+2020-11-22 04:04:29.8328 Info Adding target FileTarget(Name=allfile)
+2020-11-22 04:04:29.8328 Info Adding target FileTarget(Name=ownFile-web)
+2020-11-22 04:04:29.8648 Info Found 45 configuration items
+2020-11-22 04:04:29.8778 Info Configuration initialized.
+2020-11-22 04:04:29.8778 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-11-22 04:04:32.7549 Info AppDomain Shutting down. Logger closing...
+2020-11-22 04:04:32.7799 Info Logger has been shut down.
+2020-11-22 04:07:05.8156 Info Message Template Auto Format enabled
+2020-11-22 04:07:05.8156 Info Loading assembly: NLog.Web.AspNetCore
+2020-11-22 04:07:05.8816 Info Adding target FileTarget(Name=allfile)
+2020-11-22 04:07:05.8816 Info Adding target FileTarget(Name=ownFile-web)
+2020-11-22 04:07:05.9136 Info Found 45 configuration items
+2020-11-22 04:07:05.9246 Info Configuration initialized.
+2020-11-22 04:07:05.9246 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-11-22 04:07:08.1848 Info AppDomain Shutting down. Logger closing...
+2020-11-22 04:07:08.2098 Info Logger has been shut down.
+2020-11-22 04:07:55.7055 Info Message Template Auto Format enabled
+2020-11-22 04:07:55.7145 Info Loading assembly: NLog.Web.AspNetCore
+2020-11-22 04:07:55.8115 Info Adding target FileTarget(Name=allfile)
+2020-11-22 04:07:55.8115 Info Adding target FileTarget(Name=ownFile-web)
+2020-11-22 04:07:55.8605 Info Found 45 configuration items
+2020-11-22 04:07:55.8775 Info Configuration initialized.
+2020-11-22 04:07:55.8775 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-11-22 04:07:58.0346 Info AppDomain Shutting down. Logger closing...
+2020-11-22 04:07:58.0636 Info Logger has been shut down.
